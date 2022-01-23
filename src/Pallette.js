@@ -1,4 +1,6 @@
 import React, { PureComponent } from 'react'
+import ColorBox from './ColorBox';
+import './Pallette.css'
 
 class Pallette extends PureComponent {
     constructor(props) {
@@ -10,10 +12,13 @@ class Pallette extends PureComponent {
     }
 
     render() {
-        console.log(this.props.colors);
         return (
             <div className="pallette">
-                <div className='color-box'></div>
+                <div className='pallette-colors'>
+                    {this.props.colors.map(color => {
+                        return <ColorBox name={color.name} color={color.color} />
+                    })}
+                </div>
             </div>
         )
     }
