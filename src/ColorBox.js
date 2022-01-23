@@ -11,9 +11,17 @@ class ColorBox extends PureComponent {
     }
 
     render() {
-        console.log(this.props.color);
+        const { name } = this.props;
         return (
-            <div className='ColorBox' style={{ background: `${this.props.color}`}}>{this.props.name}</div>
+            <div className='color-box' style={{ background: `${this.props.color}`}}>
+                <div className='copy-container'>
+                    <div className='box-content'>
+                        <span>{name}</span>
+                    </div>
+                    <button className='copy-button'>Copy</button>
+                </div>
+                <span className='see-more'>More</span>
+            </div>
         )
     }
 }
