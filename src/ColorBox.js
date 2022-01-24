@@ -23,7 +23,6 @@ class ColorBox extends PureComponent {
     render() {
         const { name, color } = this.props;
         const { copied } = this.state;
-        console.log(this.state.copied);
         return (
             <CopyToClipboard text={color} >
                 <div className='color-box' style={{ background: `${color}`}} onClick={this.changeCopyState}>
