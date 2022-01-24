@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react'
-import Slider from 'rc-slider';
+import Navbar from './Navbar';
 import ColorBox from './ColorBox';
-import 'rc-slider/assets/index.css';
 import './Pallette.css'
 
 class Pallette extends PureComponent {
@@ -24,9 +23,7 @@ class Pallette extends PureComponent {
         const {colors } = this.props.palette
         return (
             <div className="pallette">
-                <div className='slider'>
-                    <Slider defaultValue={paletteHue} min={100} max={900} onAfterChange={this.changeHue} step={100}/>
-                </div>
+               <Navbar hue={paletteHue} changeHue={this.changeHue}/>
                 <div className='pallette-colors'>
                     {colors[paletteHue].map(color => {
                         return <ColorBox name={color.name} color={color.hex} />
