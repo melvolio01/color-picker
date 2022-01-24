@@ -24,7 +24,9 @@ class Pallette extends PureComponent {
         const {colors } = this.props.palette
         return (
             <div className="pallette">
-                <Slider defaultValue={paletteHue} min={100} max={900} onAfterChange={this.changeHue} step={100}/>
+                <div className='slider'>
+                    <Slider defaultValue={paletteHue} min={100} max={900} onAfterChange={this.changeHue} step={100}/>
+                </div>
                 <div className='pallette-colors'>
                     {colors[paletteHue].map(color => {
                         return <ColorBox name={color.name} color={color.hex} />
