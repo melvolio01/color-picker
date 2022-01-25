@@ -46,4 +46,9 @@ function getScale(hexColor, numberOfColors) {
     .colors(numberOfColors);
 }
 
-export { generatePalette };
+function findPalette (arr, id) {
+    const foundPalette =  arr.filter(palette =>  palette.id === id)
+    return foundPalette[0];
+  }
+
+export { generatePalette, findPalette };

@@ -25,6 +25,7 @@ class Pallette extends PureComponent {
     }
 
     render() {
+        console.log(this.props);
         const { paletteHue, format } = this.state
         const {colors, paletteName, emoji } = this.props.palette
         return (
