@@ -26,15 +26,18 @@ class Pallette extends PureComponent {
 
     render() {
         const { paletteHue, format } = this.state
-        const {colors } = this.props.palette
+        const {colors, paletteName, emoji } = this.props.palette
         return (
             <div className="pallette">
                <Navbar hue={paletteHue} changeHue={this.changeHue} changeFormat={this.changeFormat} />
                 <div className='pallette-colors'>
                     {colors[paletteHue].map(color => {
-                        return <ColorBox name={color.name} color={color[format]} />
+                        return <ColorBox key={color.id} name={color.name} color={color[format]} />
                     })}
                 </div>
+                <footer className='palette-footer'>{paletteName}
+                    <span className='emoji'>{emoji}</span>
+                </footer>
             </div>
         )
     }
