@@ -5,6 +5,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Snackbar from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
+import { Link } from 'react-router-dom';
 import 'rc-slider/assets/index.css';
 import './Navbar.css'
 
@@ -37,7 +38,7 @@ class Navbar extends PureComponent {
         return (
             <header className='navbar'>
                 <div className='logo'>
-                    <a href="#">React Color Picker</a>
+                    <Link to='/'>React Color Picker</Link>
                 </div>
                 <div className='slider-container'> 
                     <span>Level: {hue}</span>   
