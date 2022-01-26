@@ -1,7 +1,7 @@
 import React from 'react'
-import './MiniPalette.css'
 import { Link } from 'react-router-dom'
 import { withStyles } from '@material-ui/styles';
+import { findByLabelText } from '@testing-library/react';
 
 const styles = {
     root: {
@@ -16,7 +16,20 @@ const styles = {
       } 
     },
     colors: {
-        backgroundColor: 'gray'
+        backgroundColor: '#fff',
+        display: 'flex',
+        flexDirection: 'column',
+        flexWrap: 'wrap',
+        height: '150px',
+        borderRadius: '2px',
+        overflow: 'hidden'
+    },
+    color: {
+        width: '20%',
+        height: '25%',
+        display: 'inline-block',
+        position: 'relative',
+        marginBottom: '-3.5px'
     },
     title: {
         display: 'flex',
@@ -38,7 +51,10 @@ function MiniPalette(props) {
     const { palette: { paletteName, emoji, colors, id }, classes } = props;
     return (
         <div className={classes.root}>
-           <div className={classes.colors}></div>
+           <div className={classes.colors}>
+               {/* Miniature color boxes */}
+               {colors.map(color =>  <div className={classes.color} style={{backgroundColor: color.color}}></div>)}
+           </div>
            <h5 className={classes.title}>{paletteName} <span className={classes.emoji}>{emoji}</span></h5>
         </div>  
     )
