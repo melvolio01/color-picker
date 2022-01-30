@@ -1,8 +1,11 @@
 import React, { PureComponent } from 'react';
-import './Pallette.css';
+import { Link } from 'react-router-dom'; 
 import {  generateSingleColorPalette } from './ColorHelpers';
 import ColorBox from './ColorBox';
 import Navbar from './Navbar';
+import './Pallette.css';
+import './ColorBox.css';
+import { palette } from '@material-ui/system';
 
 class SingleColorPalette extends PureComponent {
     constructor(props) {
@@ -21,11 +24,11 @@ class SingleColorPalette extends PureComponent {
 
     render() {
         const { format } = this.state
-        const { palette: {colors, paletteName, emoji}, params: {colorId} } = this.props
+        const { palette: {colors, paletteName, emoji, id}, params: {colorId} } = this.props
         const shadeArr =  generateSingleColorPalette(colors, colorId)
-
+        console.log(paletteName);
         return (
-            <div className='pallette'>
+            <div className='single-color-pallette pallette'>
                 <Navbar changeFormat={this.changeFormat} showSlider={false} />
                 <div className='pallette-colors'>
                     {shadeArr.map(color => {
@@ -38,6 +41,11 @@ class SingleColorPalette extends PureComponent {
                                 showLink={false}
                             />
                     })}
+                    <div className='go-back color-box'>
+                        <Link to={`/palette/${id}`} 
+                        style={{ textDecoration: 'none' }}
+                        className='back-button'>Go Back</Link>
+                    </div>
                 </div>
                 <footer className='palette-footer'>
                 {paletteName}
@@ -49,27 +57,3 @@ class SingleColorPalette extends PureComponent {
 }
 
 export default SingleColorPalette
-
-// render() {
-//     const { paletteHue, format } = this.state
-//     const {colors, paletteName, emoji } = this.props.palette
-//     return (
-//         <div className="pallette">
-//            <Navbar hue={paletteHue} changeHue={this.changeHue} changeFormat={this.changeFormat} />
-//             <div className='pallette-colors'>
-//                 {colors[paletteHue].map(color => {
-//                     return <ColorBox 
-//                                 key={color.id} 
-//                                 name={color.name} 
-//                                 color={color[format]} 
-//                                 id={color.id} 
-//                                 paletteId = {this.props.palette.id}
-//                             />
-//                 })}
-//             </div>
-//             <footer className='palette-footer'>{paletteName}
-//                 <span className='emoji'>{emoji}</span>
-//             </footer>
-//         </div>
-//     )
-// }
