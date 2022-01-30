@@ -56,8 +56,9 @@
     background:rgba(255, 255, 255, 0.3);
     font-size: 12px;
     letter-spacing: 1px;
+    text-align: center;
     margin: 10px;
-    padding: 5px;
+    padding: 2px;
     color: white;
     width: 60px;
     height: 30px;
@@ -91,6 +92,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center;
     font-size: 4rem;
     transform: scale(0.4);
     opacity: 0;

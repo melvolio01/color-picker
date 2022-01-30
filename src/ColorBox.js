@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
+import { Link } from 'react-router-dom'
 import './ColorBox.css'
 
 class ColorBox extends PureComponent {
@@ -21,7 +22,7 @@ class ColorBox extends PureComponent {
     }
 
     render() {
-        const { name, color } = this.props;
+        const { name, color, id, paletteId, showLink } = this.props;
         const { copied } = this.state;
         return (
             <CopyToClipboard text={color} >
@@ -37,7 +38,9 @@ class ColorBox extends PureComponent {
                         </div>
                         <button className='copy-button'>Copy</button>
                     </div>
-                    <span className='see-more'>More</span>
+                    { showLink && <Link to={`${id}`} onClick={e => e.stopPropagation()}>
+                        <span className='see-more'>More</span>
+                    </Link>}
                 </div>
             </CopyToClipboard>
         )

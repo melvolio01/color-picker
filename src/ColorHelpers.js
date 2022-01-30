@@ -51,4 +51,13 @@ function findPalette (arr, id) {
     return foundPalette[0];
   }
 
-export { generatePalette, findPalette };
+function generateSingleColorPalette (colors, color) {
+  let shadeArr = [];
+  for (const hue in colors) {
+    const filteredArr = colors[hue].filter(hueColor => hueColor.id === color);
+    shadeArr.push(filteredArr[0]);
+  }
+  return shadeArr.slice(1);
+}
+
+export { generatePalette, findPalette, generateSingleColorPalette };
