@@ -131,3 +131,11 @@
 .copy-message p {
     font-weight: 100;
 }
+
+.light-text {
+    color: #fff;
+}
+
+.dark-text {
+    color: #000;
+}
