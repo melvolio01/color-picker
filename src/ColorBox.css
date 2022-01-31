@@ -9,7 +9,11 @@
     margin-bottom: -3.5px;
 }
 
-.copy-button {
+.single-color-pallette .color-box {
+    height: 50%;
+}
+
+.copy-button, .back-button {
     width: 100px;
     height: 30px;
     position: absolute;
@@ -24,10 +28,18 @@
     font-size: 1rem;
     line-height: 30px;
     border: none;
+    opacity: 1;
     color: white;
-    opacity: 0;
     letter-spacing: 1px;
     text-transform: uppercase;
+}
+
+.back-button {
+    background-color: rgb(66,78,79);
+}
+
+.copy-button {
+    opacity: 0;
 }
 
 .color-box:hover .copy-button {
@@ -56,8 +68,9 @@
     background:rgba(255, 255, 255, 0.3);
     font-size: 12px;
     letter-spacing: 1px;
+    text-align: center;
     margin: 10px;
-    padding: 5px;
+    padding: 2px;
     color: white;
     width: 60px;
     height: 30px;
@@ -91,6 +104,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center;
     font-size: 4rem;
     transform: scale(0.4);
     opacity: 0;

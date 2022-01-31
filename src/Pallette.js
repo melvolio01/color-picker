@@ -29,10 +29,17 @@ class Pallette extends PureComponent {
         const {colors, paletteName, emoji } = this.props.palette
         return (
             <div className="pallette">
-               <Navbar hue={paletteHue} changeHue={this.changeHue} changeFormat={this.changeFormat} />
+               <Navbar hue={paletteHue} changeHue={this.changeHue} changeFormat={this.changeFormat} showSlider={true} />
                 <div className='pallette-colors'>
                     {colors[paletteHue].map(color => {
-                        return <ColorBox key={color.id} name={color.name} color={color[format]} />
+                        return <ColorBox 
+                                    key={color.id} 
+                                    name={color.name} 
+                                    color={color[format]} 
+                                    id={color.id} 
+                                    paletteId = {this.props.palette.id}
+                                    showLink={true}
+                                />
                     })}
                 </div>
                 <footer className='palette-footer'>{paletteName}

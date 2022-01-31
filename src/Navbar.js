@@ -5,6 +5,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Snackbar from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
+import { Link } from 'react-router-dom';
 import 'rc-slider/assets/index.css';
 import './Navbar.css'
 
@@ -32,19 +33,19 @@ class Navbar extends PureComponent {
     }
 
     render() {
-        const { hue, changeHue } = this.props;
+        const { hue, changeHue, showSlider } = this.props;
         const { format } = this.state;
         return (
             <header className='navbar'>
                 <div className='logo'>
-                    <a href="#">React Color Picker</a>
+                    <Link to='/'>React Color Picker</Link>
                 </div>
-                <div className='slider-container'> 
+                {showSlider &&<div className='slider-container'> 
                     <span>Level: {hue}</span>   
-                    <div className='slider'>
+                     <div className='slider'>
                         <Slider defaultValue={hue} min={100} max={900} onAfterChange={changeHue} step={100}/>
                     </div>
-                </div>   
+                </div>}
                 <div>
                     <div className='select-container'>
                         <Select value={format} onChange={this.handleChange}>
@@ -53,7 +54,7 @@ class Navbar extends PureComponent {
                             <MenuItem value='rgba'>RGBA - 255, 255, 255, 1.0</MenuItem>
                         </Select>
                     </div>
-                </div>  
+                </div>
                 <Snackbar
                     anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
                     open={this.state.open}
